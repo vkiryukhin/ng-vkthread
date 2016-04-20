@@ -1,0 +1,16 @@
+body {    font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";}
+
+.docContainer {
+
+background-color:#ffffee;
+border: 1px solid black;
+}
+
+h1, h2, h3, h5 {text-align:center; color:#000080; padding-bottom:0.5em;}
+h4 {color:#000080; padding-bottom:0.5em; margin-left:1em; font-family:consolas,Areal;}
+p {margin:0.5em; padding:0.25em;}
+
+pre {padding: 0.5em; margin: 0.5em; font-family:consolas,Areal;}
+
+.activeTabName {color:blue; text-decoration: underline;}
+.footer {color:#aaa; padding: 1em;margine:auto;text-align: center;font-size:80%;}

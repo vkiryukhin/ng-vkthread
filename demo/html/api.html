@@ -1,0 +1,39 @@
+<div class="container-fluid docContainer">
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+
+<p></p>
+<h4>vkThread.exec ( param )</h4>
+<p>Run function in a thread.</p>
+<pre><code data-language="javascript">
+	@return -- promise object
+
+	param -- object which has following attributes:
+	   
+	@fn                     - function to execute 
+	@args        (optional) - array of arguments for @fn          
+	@context     (optional) - object which will be 'this' for @fn 
+	@importFiles (optional) - array of strings; each string is URL 
+	                          to a file, which @fn depends on.
+
+</code></pre>
+<p></p>
+<h4>vkThread.execAll ( [param1, param2, ... ] )</h4>
+<p>Run multiple functions in multiple threads.</p>
+<pre><code data-language="javascript">
+	@return -- promise object when all threads done.
+
+	param -- object (see above ) 
+</code></pre>
+
+<p></p>
+	<h4>vkThread.getVersion();</h4>
+<pre><code data-language="javascript">
+	@return current version as a String;
+</code></pre>
+<p></p><p></p>
+</div>
+<div class="col-md-2"></div>
+</div> <!-- row -->
+</div> <!-- container-fluid -->

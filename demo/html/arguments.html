@@ -1,0 +1,41 @@
+
+
+<p>Function <b>twoArgs()</b> takes 2 arguments: array and object, filters out members which are below 50 stars, and set comment based on star's value.</p>
+
+<pre><code data-language="javascript">	
+function twoArgs(arr, msgs){
+    function isGreateFifty(value){
+        return value.stargazers_count > 50;
+    }
+    function msg(obj){
+      obj.language = obj.stargazers_count > 70 ? msgs.excellent : msgs.good;
+      return obj;
+    }
+    return arr.filter(isGreateFifty).map(msg);
+  }
+</code></pre>
+
+<p>run it in thred &nbsp; &nbsp; &nbsp;<input type="button" ng-click="runWithArgs()" value="Run"/></p>
+<pre><code data-language="javascript">	 
+var param = {
+          fn: twoArgs,
+          args: [$scope.repos, 
+                  { good:'Good Job!',
+                    excellent:'Excellent Job!'
+                  } 
+                ]
+      };
+
+  vkThread.exec(param).then(
+       function (data) {
+           $scope.repos = data;
+        },
+        function(err) {
+            alert(err);
+        }
+   );
+ </code></pre>  
+
+
+
+

@@ -1,0 +1,71 @@
+<div class="container-fluid docContainer">
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-md-8">
+	<p>
+		<b>ng-vkThread</b> is an Angular plugin, which allows you to execute a function in a thread. 
+	</p>
+	<p>
+		Function can be:
+		<ul>
+			<li>Regular function</li>
+			<li>Object's method</li>
+			<li>Function with dependencies</li>
+			<li>Function with context</li>
+			<li>Anonymous function</li>
+		</ul>
+	</p>
+
+	<p>
+	<div>Plugin is built on HTML5 "Web Workers" technology. </div>
+
+	<ul>
+		<li>It is very compact: 1.8k minified / 4.0k development</li>
+	<li>Doesn't have any dependecies. </li>
+	</ul>
+</p>
+<p>
+		Basic usage:    
+</p>
+<pre><code data-language="javascript">
+var app = angular.module('myApp',['ng-vkThread']);
+
+app.controller('ExampleController', ['$scope', 'vkThread',
+  function($scope, vkThread){
+
+  var vkThread = vkThread();
+
+  . . .
+}
+</code></pre>
+
+
+<pre><code data-language="javascript">	
+/* function to execute in a thread */
+function foo(n, m){ 
+	return n + m;
+}
+
+/* create an object, which you pass to vkThread as an argument*/
+var param = {
+      fn: foo      // <-- function to execute
+      args: [1, 2] // <-- arguments for this function
+    };
+
+/* run thread */
+vkThread.exec(param).then(
+   function (data) {
+       console.log(data);  // <-- thread returns 3 
+    },
+    function(err) {
+        alert(err);  // <-- thread returns error message
+    }
+
+);
+</code></pre>  
+
+</div>
+<div class="col-md-2"></div>
+</div> <!-- row -->
+</div> <!-- container-fluid -->
+

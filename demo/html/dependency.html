@@ -1,0 +1,38 @@
+
+<p>Function <b>withDependency()</b> gets array as an argument, sorts it and uses "underscore" library to return the first and the last elements of the array. We must provide url to the library as "importFiles" value. You can pass dependencies as many as you need.  </p>
+
+<pre><code data-language="javascript">	
+function withDependency(arr){
+      var ret = [];
+
+      function compare(a,b){
+        return b.stargazers_count - a.stargazers_count
+      }
+
+      arr.sort(compare)
+      ret.push(_.first(arr));
+      ret.push(_.last(arr));
+      return ret;
+  }
+
+</code></pre>
+
+<p>run it in thred &nbsp; &nbsp; &nbsp;<input type="button" ng-click="runWithDependency()" value="Run with Dependency"/> </p>
+<pre><code data-language="javascript">	 
+var param = {
+    fn:examples.withDependency,
+    args: [ $scope.repos],
+    importFiles:['https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js']
+  };
+
+  vkThread.exec(param).then(
+       function (data) {
+           $scope.repos = data;
+        },
+        function(err) {
+            alert(err);
+        }
+   );
+ </code></pre>  
+
+
