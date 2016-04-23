@@ -16,7 +16,10 @@ Plugin is built on HTML5 "Web Worker" technology.
 
 **Basic usage:**
 
-- add plugun to your project:
+- integrate plugun in your project:
+```html
+<script src="../vkthread/vkthread.min.js" type="text/javascript"></script>
+```
 ```javascript
 var app = angular.module('myApp',['ng-vkThread']);
 
