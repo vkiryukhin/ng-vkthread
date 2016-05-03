@@ -1,7 +1,7 @@
 
 <p>Function <b>withDependency()</b> gets array as an argument, sorts it and uses "underscore" library to return the first and the last elements of the array. We must provide url to the library as "importFiles" value. You can pass dependencies as many as you need.  </p>
 
-<pre><code data-language="javascript">	
+<pre><code data-language="javascript">
 function withDependency(arr){
       var ret = [];
 
@@ -18,7 +18,10 @@ function withDependency(arr){
 </code></pre>
 
 <p>run it in thred &nbsp; &nbsp; &nbsp;<input type="button" ng-click="runWithDependency()" value="Run with Dependency"/> </p>
-<pre><code data-language="javascript">	 
+
+<p>run it in thred &nbsp; &nbsp; &nbsp;<input type="button" ng-click="runFromExternal()" value="Run Exernal file"/> </p>
+
+<pre><code data-language="javascript">
 var param = {
     fn:examples.withDependency,
     args: [ $scope.repos],
@@ -33,6 +36,6 @@ var param = {
             alert(err);
         }
    );
- </code></pre>  
+ </code></pre>
 
 

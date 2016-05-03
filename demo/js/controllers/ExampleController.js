@@ -51,7 +51,7 @@ var onRepos = function(data){
     github.getRepos($scope.user)
                  .then(onRepos, onError);
  };
-    
+
 $scope.search = function(username){
     github.getUser(username)
                  .then(onComplete, onError);
@@ -65,7 +65,7 @@ $scope.search = function(username){
       var userData = github.getUser($scope.username)
                            .then(
                               function(data){
-                                return github.getRepos(data); 
+                                return github.getRepos(data);
                               }
                            ).then(
                               function(data){
@@ -97,10 +97,10 @@ function runWithArgs(){
 function _runWithArgs(){
     var param = {
           fn: examples.twoArgs,
-          args: [$scope.repos, 
+          args: [$scope.repos,
                   { good:'Good Job!',
                     excellent:'Excellent Job!'
-                  } 
+                  }
                 ]
       };
 
@@ -185,7 +185,7 @@ function runMultiThread(){
           args: ['https://api.github.com/users/vkiryukhin/repos']
           //args: ['repos.json']
       }
-          
+
   vkThread.execAll([param1,param2]).then(
       function (data) {
         $scope.repos = data[0].concat(data[1]);
@@ -198,10 +198,33 @@ function runMultiThread(){
 }
 
 
+function runFromExternal(){
+
+}
+
+function runFromExternal(){
+
+  var param = {
+    fn:'test',
+    args: [ 'World!'],
+    importFiles:['http://localhost/projects/app/ng-vkthread/demo/js/test.js']
+  };
+
+  vkThread.exec(param).then(
+       function (data) {
+           alert(data);
+        },
+        function(err) {
+            alert(err);
+        }
+   );
+}
+
   $scope.runWithArgs = runWithArgs;
   $scope.runWithDependency = runWithDependency;
   $scope.runWithContext = runWithContext;
   $scope.runMultiThread = runMultiThread;
-    
+  $scope.runFromExternal=runFromExternal;
+
 
 }]);
