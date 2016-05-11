@@ -1,7 +1,7 @@
 
 <p>Function <b>Foo</b> is constructor, and getFirst() is a member function, which sorts array and returns 3 elements. Pay attention that we don't pass array as an argument. It passed as a context with foo object. </p>
 
-<pre><code data-language="javascript">	
+<pre><code data-language="javascript">
 function Foo(arr){
       this.myArr = arr;
       this.getFirst = function(){
@@ -15,8 +15,8 @@ function Foo(arr){
   var foo = new Foo($scope.repos);
 </code></pre>
 
-<p>run it in thred &nbsp; &nbsp; &nbsp;<input type="button" ng-click="runWithContext()" value="Run with Context"/> </p>
-<pre><code data-language="javascript">	 
+<p><input type="button" ng-click="runWithContext()" value="Run function with Context in a thread"/> </p>
+<pre><code data-language="javascript">
 var param = {
     fn:foo.getFirst,
     context:foo
@@ -30,5 +30,5 @@ var param = {
             alert(err);
         }
    );
- </code></pre>  
+ </code></pre>
 

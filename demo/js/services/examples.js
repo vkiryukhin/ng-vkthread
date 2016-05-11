@@ -1,5 +1,5 @@
 
-app.factory('examples', ['$http', function($http){  
+app.factory('examples', ['$http', function($http){
 
 
 
@@ -18,7 +18,7 @@ app.factory('examples', ['$http', function($http){
       }
     };
 
-    // IMPORTANT: ajax must perform the operation synchronously  
+    // IMPORTANT: ajax must perform the operation synchronously
     // (the 3-rd arg is false); as ajax is executed in a thread, it's OK.
     httpRequest.open('GET', url, false);
     httpRequest.send();
@@ -36,7 +36,7 @@ app.factory('examples', ['$http', function($http){
     function isGreateFifty(value){
         return value.stargazers_count > 20;
     }
-    
+
     return arr.filter(isGreateFifty);
   }
 
@@ -67,13 +67,10 @@ app.factory('examples', ['$http', function($http){
       return ret;
   }
 
-
-
-
   return {
       basicAjax: basicAjax,
       twoArgs: twoArgs,
-      withDependency:withDependency,
+      withDependency:withDependency
     };
   }]);
-  
+

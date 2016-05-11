@@ -1,0 +1,36 @@
+
+<p>Function <b>makeNamesUpper( )</b> is located in external file <b>my_utils.js</b>
+  </p>
+
+&nbsp;&nbsp;&nbsp;<i>my_utils.js</i> &nbsp; &nbsp; &nbsp;
+<pre><code data-language="javascript">
+function makeNamesUpper(arr){
+
+   return arr.map(function(elm){
+      elm.name = elm.name.toUpperCase();
+      return elm;
+    });
+}
+
+</code></pre>
+<p><input type="button" ng-click="runFromExternal()" value="Run function from exernal file in a thread"/></p>
+
+<pre><code data-language="javascript">
+  var param = {
+    fn:'makeNamesUpper', // <-- function name must be String
+    args: [ $scope.repos],
+    importFiles:['http://localhost/projects/app/ng-vkthread/demo/js/lib/my_utils.js']
+  };
+
+  vkThread.exec(param).then(
+       function (data) {
+          $scope.repos = data;
+        },
+        function(err) {
+            alert(err);
+        }
+   );
+
+ </code></pre>
+
+

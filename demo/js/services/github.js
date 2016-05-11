@@ -1,4 +1,4 @@
-app.factory('github', ['$http', function($http){  
+app.factory('github', ['$http', function($http){
     var getUser = function(username){
       return $http.get("https://api.github.com/users/"+username)
       //return $http.get("person.json")
@@ -6,7 +6,7 @@ app.factory('github', ['$http', function($http){
                     return response.data;
                   });
     };
-    
+
     var getRepos = function(user){
         return  $http.get(user.repos_url)
         //return  $http.get("repos.json")
@@ -15,10 +15,10 @@ app.factory('github', ['$http', function($http){
           });
 
     };
-    
+
     return {
       getUser: getUser,
       getRepos: getRepos
     };
 }]);
-  
+

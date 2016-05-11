@@ -20,6 +20,10 @@
         $scope.activeTab = 'html/dependency.html';
         $scope.activeTabName = 'dependency';
         break;
+      case 'external':
+        $scope.activeTab = 'html/external.html';
+        $scope.activeTabName = 'external';
+        break;
       case 'multithreading':
         $scope.activeTab = 'html/multithreading.html';
         $scope.activeTabName = 'multithreading';
@@ -37,7 +41,7 @@
 
   $scope.activeTab = 'html/arguments.html';
 
-//----------------------------------------//
+
 var onRepos = function(data){
     $scope.repos = data;
   };
@@ -197,22 +201,22 @@ function runMultiThread(){
 
 }
 
-
 function runFromExternal(){
-
+  search().then(
+      function(){_runFromExternal()}
+    );
 }
 
-function runFromExternal(){
-
+function _runFromExternal(){
   var param = {
-    fn:'test',
-    args: [ 'World!'],
-    importFiles:['http://localhost/projects/app/ng-vkthread/demo/js/test.js']
+    fn:'makeNamesUpper',
+    args: [ $scope.repos],
+    importFiles:['http://localhost/projects/app/ng-vkthread/demo/js/lib/my_utils.js']
   };
 
   vkThread.exec(param).then(
        function (data) {
-           alert(data);
+          $scope.repos = data;
         },
         function(err) {
             alert(err);
@@ -224,7 +228,7 @@ function runFromExternal(){
   $scope.runWithDependency = runWithDependency;
   $scope.runWithContext = runWithContext;
   $scope.runMultiThread = runMultiThread;
-  $scope.runFromExternal=runFromExternal;
+  $scope.runFromExternal = runFromExternal;
 
 
 }]);

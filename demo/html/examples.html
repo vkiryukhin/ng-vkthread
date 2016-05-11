@@ -3,7 +3,7 @@
 <div class="row">
 
 <div class="col-md-4">
-    <form ng-submit="search(username)"> 
+    <form ng-submit="search(username)">
 
       <input type="searchUser" required  placeholder="find something" ng-model="username"/>
       <input type="submit" value="Search Github"/>
@@ -17,43 +17,49 @@
     </div>
 
   <div>
- 
-  </div> 
+
+  </div>
 
     <div ng-include="'html/userdetails.html'" ng-show="user"></div>
 
-</div>  
+</div>
 
 <div class="col-md-8">
- 
- <div id="subMenu"> 
-    <span ng-click="onClickTab('arguments')" 
+
+ <div id="subMenu">
+    <span ng-click="onClickTab('arguments')"
           style="cursor:pointer"
           ng-class="{activeTabName: activeTabName=='arguments'}">
           arguments
     </span>
     &nbsp;&nbsp;|&nbsp;&nbsp;
-    <span ng-click="onClickTab('context')" 
+    <span ng-click="onClickTab('context')"
           style="cursor:pointer"
           ng-class="{activeTabName: activeTabName=='context'}">
           context
     </span>
     &nbsp;&nbsp;|&nbsp;&nbsp;
-    <span ng-click="onClickTab('dependency')" 
-          style="cursor:pointer" 
+    <span ng-click="onClickTab('dependency')"
+          style="cursor:pointer"
           ng-class="{activeTabName: activeTabName=='dependency'}">
           dependency
     </span>
     &nbsp;&nbsp;|&nbsp;&nbsp;
-    <span ng-click="onClickTab('multithreading')" 
-          style="cursor:pointer" 
+    <span ng-click="onClickTab('external')"
+          style="cursor:pointer"
+          ng-class="{activeTabName: activeTabName=='external'}">
+          external
+    </span>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <span ng-click="onClickTab('multithreading')"
+          style="cursor:pointer"
           ng-class="{activeTabName: activeTabName=='multithreading'}">
           multithreading
     </span>
 </div>
 <p></p>
 <div id="content" class="docContainer">
-    
+
     <div id="docContentWrapper" >
       <div class="pageContent">
           <ng-include src="activeTab" onload="colorIt()"></ng-include>
@@ -66,7 +72,7 @@
 </div>
 
 
-</div> <!-- row --> 
+</div> <!-- row -->
 
 
 </div> <!-- container-fluid -->

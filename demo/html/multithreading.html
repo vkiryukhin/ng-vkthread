@@ -18,7 +18,7 @@ We run this function in 2 different threads providing different URLs, and then j
       }
     };
 
-    // IMPORTANT: ajax must perform the operation synchronously  
+    // IMPORTANT: ajax must perform the operation synchronously
     // (the 3-rd arg is false); as ajax is executed in a thread, it's OK.
     httpRequest.open('GET', url, false);
     httpRequest.send();
@@ -31,7 +31,7 @@ We run this function in 2 different threads providing different URLs, and then j
   }
 </code></pre>
 
-<p>run it in thred &nbsp; &nbsp; &nbsp;<input type="button" ng-click="runMultiThread()" value="Run" /> </p>
+<p><input type="button" ng-click="runMultiThread()" value="Run in two different threads" /> </p>
 
 <pre><code data-language="javascript">
 var param1 = {
@@ -42,7 +42,7 @@ var param2 = {
           fn: basicAjax,
           args: ['https://api.github.com/users/vkiryukhin/repos']
       }
-          
+
   vkThread.execAll([param1,param2]).then(
       function (data) {
         $scope.repos = data[0].concat(data[1]);

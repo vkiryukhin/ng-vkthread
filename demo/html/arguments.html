@@ -2,7 +2,7 @@
 
 <p>Function <b>twoArgs()</b> takes 2 arguments: array and object, filters out members which are below 50 stars, and set comment based on star's value.</p>
 
-<pre><code data-language="javascript">	
+<pre><code data-language="javascript">
 function twoArgs(arr, msgs){
     function isGreateFifty(value){
         return value.stargazers_count > 50;
@@ -15,14 +15,14 @@ function twoArgs(arr, msgs){
   }
 </code></pre>
 
-<p>run it in thred &nbsp; &nbsp; &nbsp;<input type="button" ng-click="runWithArgs()" value="Run"/></p>
-<pre><code data-language="javascript">	 
+<p><input type="button" ng-click="runWithArgs()" value="Run function in a thread"/></p>
+<pre><code data-language="javascript">
 var param = {
           fn: twoArgs,
-          args: [$scope.repos, 
+          args: [$scope.repos,
                   { good:'Good Job!',
                     excellent:'Excellent Job!'
-                  } 
+                  }
                 ]
       };
 
@@ -34,7 +34,7 @@ var param = {
             alert(err);
         }
    );
- </code></pre>  
+ </code></pre>
 
 
 

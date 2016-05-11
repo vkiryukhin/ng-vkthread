@@ -3,7 +3,11 @@
 <div class="col-md-2"></div>
 <div class="col-md-8">
 	<p>
-		<b>ng-vkThread</b> is an Angular plugin, which allows you to execute a function in a thread. 
+		<b>ng-vkThread</b> is an Angular plugin, which allows you to execute a function in a thread.
+	</p>
+	<p>
+		Function can be defined directly in the main thread or called from an external  javascript file.
+
 	</p>
 	<p>
 		Function can be:
@@ -25,7 +29,7 @@
 	</ul>
 </p>
 <p>
-		Basic usage:    
+		Integration:
 </p>
 <pre><code data-language="javascript">
 var app = angular.module('myApp',['ng-vkThread']);
@@ -39,10 +43,13 @@ app.controller('ExampleController', ['$scope', 'vkThread',
 }
 </code></pre>
 
+<p>
+		Basic usage:
+</p>
 
-<pre><code data-language="javascript">	
+<pre><code data-language="javascript">
 /* function to execute in a thread */
-function foo(n, m){ 
+function foo(n, m){
 	return n + m;
 }
 
@@ -55,14 +62,14 @@ var param = {
 /* run thread */
 vkThread.exec(param).then(
    function (data) {
-       console.log(data);  // <-- thread returns 3 
+       console.log(data);  // <-- thread returns 3
     },
     function(err) {
         alert(err);  // <-- thread returns error message
     }
 
 );
-</code></pre>  
+</code></pre>
 
 </div>
 <div class="col-md-2"></div>
