@@ -1,6 +1,8 @@
 ##ng-vkThread 
 Angular plugin, which allows you to execute a function in a separate thread.
 
+Function can be defined directly in the main thread or called from an external javascript file.
+
 **Function can be:**
 
 - Regular functions
