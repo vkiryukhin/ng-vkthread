@@ -1,1 +1,1 @@
-var app = angular.module("myApp",['ng-vkThread']); 
+var app = angular.module('myApp',['ng-vkThread']); 

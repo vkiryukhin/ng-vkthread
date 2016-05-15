@@ -1,8 +1,8 @@
 
-  app.controller("ExampleController", ['$scope','github', 'examples','$q','vkThread',
+  app.controller('ExampleController', ['$scope','github', 'examples','$q','vkThread',
     function($scope, github, examples, $q, vkThread){
 
-  var vkThread = vkThread();
+  var thread = vkThread();
 
 
   $scope.onClickTab = function(page) {
@@ -35,7 +35,7 @@
 
     $scope.search($scope.username);
 
-  }
+  };
 
   $scope.activeTabName = 'arguments';
 
@@ -59,7 +59,7 @@ var onRepos = function(data){
 $scope.search = function(username){
     github.getUser(username)
                  .then(onComplete, onError);
-  }
+  };
 
 
   function search(){
@@ -85,7 +85,7 @@ $scope.search = function(username){
   }
 
 
-  $scope.username = "vkiryukhin";
+  $scope.username = 'vkiryukhin';
   $scope.repoSortOrder = '-stargazers_count';
   $scope.search($scope.username);
   $scope.sortOrderNameDir = '';
@@ -108,7 +108,7 @@ function _runWithArgs(){
                 ]
       };
 
-  vkThread.exec(param).then(
+  thread.exec(param).then(
        function (data) {
            $scope.repos = data;
         },
@@ -132,7 +132,7 @@ function _runWithDependency(){
     importFiles:['https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js']
   };
 
-  vkThread.exec(param).then(
+  thread.exec(param).then(
        function (data) {
            $scope.repos = data;
         },
@@ -154,10 +154,10 @@ function _runWithContext(){
       this.myArr = arr;
       this.getFirst = function(){
         function compare(a,b){
-          return b.stargazers_count - a.stargazers_count
+          return b.stargazers_count - a.stargazers_count;
         }
         return this.myArr.sort(compare).slice(1,4);
-      }
+      };
     }
 
 
@@ -168,7 +168,7 @@ function _runWithContext(){
     context:foo
   };
 
-  vkThread.exec(param).then(
+  thread.exec(param).then(
        function (data) {
            $scope.repos = data;
         },
@@ -190,7 +190,7 @@ function runMultiThread(){
           //args: ['repos.json']
       }
 
-  vkThread.execAll([param1,param2]).then(
+  thread.execAll([param1,param2]).then(
       function (data) {
         $scope.repos = data[0].concat(data[1]);
       },
@@ -214,7 +214,7 @@ function _runFromExternal(){
     importFiles:['http://localhost/projects/app/ng-vkthread/demo/js/lib/my_utils.js']
   };
 
-  vkThread.exec(param).then(
+  thread.exec(param).then(
        function (data) {
           $scope.repos = data;
         },

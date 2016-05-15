@@ -11,6 +11,9 @@
 *
 * Copyright (c) 2016 Vadim Kiryukhin
 */
+
+/* jshint maxlen:false */
+
 (function (angular) {
  'use strict';
     /**
@@ -45,7 +48,7 @@
                 this.version = '0.70.00';
                 this.getVersion = function(){
                     return this.version;
-                }
+                };
             };
 
           /**

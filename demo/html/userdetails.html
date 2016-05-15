@@ -1,33 +1,27 @@
 
 <div  id="userDetails">
-  
-  <!--div>
-    <img style="width:50px; height:50px;" ng-src="{{user.avatar_url}}" title="{{user.name}}" />
-    {{user.name}}
-  </div-->  
-    
-  
+
   <table class="table table-bordered table-condensed">
     <thead>
       <tr>
         <th >
-          Repositories 
-          <span class="glyphicon glyphicon-triangle-bottom" 
-                aria-hidden="true" 
-                style="cursor:pointer" 
+          Repositories
+          <span class="glyphicon glyphicon-triangle-bottom"
+                aria-hidden="true"
+                style="cursor:pointer"
                 ng-click="repoSortOrder='+name'; reverse=!reverse" ></span>
         </th>
         <th >
           Stars
-          <span class="glyphicon glyphicon-triangle-bottom" 
-                aria-hidden="true" 
+          <span class="glyphicon glyphicon-triangle-bottom"
+                aria-hidden="true"
                 style="cursor:pointer"
                 ng-click="repoSortOrder='-stargazers_count'; reverse=!reverse"></span>
         </th>
         <th>Language</th>
       </tr>
     </thead>
-    
+
     <tbody>
       <tr ng-repeat="repo in repos |orderBy:repoSortOrder:reverse">
         <td>{{repo.name}}</td>
@@ -35,7 +29,7 @@
         <td>{{repo.language}}</td>
       </tr>
     </tbody>
-    
+
   </table>
 
 </div>

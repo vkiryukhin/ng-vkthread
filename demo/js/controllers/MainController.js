@@ -1,7 +1,7 @@
 
- 
-angular.module("myApp")
-       .controller("MainController",['$scope',
+
+angular.module('myApp')
+       .controller('MainController',['$scope',
   function($scope){
 
 
@@ -24,7 +24,7 @@ angular.module("myApp")
         $scope.activeTabMenu = 'overview';
     }
 
-  }
+  };
 $scope.colorIt = function(){Rainbow.color();};
 
 

@@ -24,7 +24,7 @@ app.factory('examples', ['$http', function($http){
     httpRequest.send();
 
     function compare(a,b){
-      return b.stargazers_count - a.stargazers_count
+      return b.stargazers_count - a.stargazers_count;
     }
 
     return result.sort(compare).slice(0,5);
@@ -58,10 +58,10 @@ app.factory('examples', ['$http', function($http){
       var ret = [];
 
       function compare(a,b){
-        return b.stargazers_count - a.stargazers_count
+        return b.stargazers_count - a.stargazers_count;
       }
 
-      arr.sort(compare)
+      arr.sort(compare);
       ret.push(_.first(arr));
       ret.push(_.last(arr));
       return ret;
