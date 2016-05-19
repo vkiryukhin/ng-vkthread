@@ -13,11 +13,14 @@ Function can be defined directly in the main thread or called from an external j
 
 Plugin is built on HTML5 "Web Worker" technology.
 
-- It is very compact: 1.8k minified / 4.0k development
+- file size: 2.2k minified / 4.2k development
 - Doesn't have any dependecies.
 
 **Basic usage:**
-
+- install with bower
+```
+bower install ng-vkthread
+```
 - integrate plugun in your project:
 ```html
 <script src="../vkthread/vkthread.min.js" type="text/javascript"></script>
