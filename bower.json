@@ -1,0 +1,29 @@
+{
+  "name": "ng-vkThread",
+  "description": "An Angular plugin to execute a function in a thread",
+  "main": "vkthread/vkthread.js",
+  "authors": [
+    "Vadim Kiryukhin <vkiryukhin@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "worker",
+    "webworker",
+    "thread",
+    "multithreading"
+  ],
+  "homepage": "https://github.com/vkiryukhin/ng-vkthread",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {},
+  "dependencies": {
+    "angular": "^1.2.0"
+  }
+}
