@@ -4,7 +4,7 @@
 * https://github.com/vkiryukhin/ng-vkthread
 * http://www.eslinstructor.net/ng-vkthread/
 *
-* @version: 0.70.01
+* @version: 0.7.1
 * The MIT License (MIT)
 *
 * @author: Vadim Kiryukhin ( vkiryukhin @ gmail.com )
