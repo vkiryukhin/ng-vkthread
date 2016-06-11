@@ -4,7 +4,7 @@
 * https://github.com/vkiryukhin/ng-vkthread
 * http://www.eslinstructor.net/ng-vkthread/
 *
-* @version: 0.70.00
+* @version: 0.70.01
 * The MIT License (MIT)
 *
 * @author: Vadim Kiryukhin ( vkiryukhin @ gmail.com )
@@ -45,7 +45,7 @@
         this.$get = function($q){
 
             var VkThread = function(){
-                this.version = '0.70.00';
+                this.version = '0.70.01';
                 this.getVersion = function(){
                     return this.version;
                 };

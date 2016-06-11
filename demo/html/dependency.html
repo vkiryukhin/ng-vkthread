@@ -1,6 +1,6 @@
 
 <p>Function <b>withDependency()</b> gets array as an argument, sorts it and uses <b>"underscore"</b> library to return the first and the last elements of the array. <br/>
-We must provide url to the library as <b>"importFiles"</b> value. <br/>
+You need to provide url to the library as <b>"importFiles"</b> value. <br/>
 You can pass as many dependencies as you need. </p>
 
 <pre><code data-language="javascript">
@@ -23,7 +23,7 @@ function withDependency(arr){
 
 <pre><code data-language="javascript">
 var param = {
-    fn:examples.withDependency,
+    fn:withDependency,
     args: [ $scope.repos],
     importFiles:['https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js']
   };
