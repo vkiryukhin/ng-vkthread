@@ -1,35 +1,16 @@
 
 app.factory('examples', ['$http', function($http){
 
+	function basicAjax(config) {
+		
+		var result = vkhttp(config);
 
+	    function compare(a,b){
+	      return b.stargazers_count - a.stargazers_count;
+	    }
 
-  function basicAjax(url) {
-
-    var httpRequest = new XMLHttpRequest(),
-        result;
-
-    httpRequest.onreadystatechange = function(){
-      if (httpRequest.readyState === 4) {
-        if (httpRequest.status === 200) {
-          result = JSON.parse(httpRequest.responseText);
-        } else {
-          result = 'There was a problem with the request.';
-        }
-      }
-    };
-
-    // IMPORTANT: ajax must perform the operation synchronously
-    // (the 3-rd arg is false); as ajax is executed in a thread, it's OK.
-    httpRequest.open('GET', url, false);
-    httpRequest.send();
-
-    function compare(a,b){
-      return b.stargazers_count - a.stargazers_count;
-    }
-
-    return result.sort(compare).slice(0,5);
-  }
-
+	    return JSON.parse(result).sort(compare).slice(0,5);
+	  }
 
   function oneArg(arr){
 

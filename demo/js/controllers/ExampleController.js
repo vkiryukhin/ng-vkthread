@@ -181,13 +181,14 @@ function _runWithContext(){
 function runMultiThread(){
   var param1 = {
           fn: examples.basicAjax,
-          args: ['https://api.github.com/users/angular/repos']
-          //args: ['repos.json']
+          args: [{url: 'https://api.github.com/users/angular/repos'}]
+  			
+
       },
       param2 = {
           fn: examples.basicAjax,
-          args: ['https://api.github.com/users/vkiryukhin/repos']
-          //args: ['repos.json']
+          args: [{url: 'https://api.github.com/users/vkiryukhin/repos'}]
+
       }
 
   thread.execAll([param1,param2]).then(
