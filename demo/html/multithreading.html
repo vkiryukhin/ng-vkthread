@@ -1,38 +1,49 @@
 
-<p>Function <b>basicAjax()</b> gets data with AJAX in a thread, sorts it and returns the first 5 elements of the array.
-We run this function in 2 different threads providing different URLs, and then join responses from these 2 threads. </p>
+<p>
+Function <b>vkthread.execAll()</b> opens a door for implementation a concept of "parallel computing". 
+This function let you to start simultaneous execution of multiple functions in parallel threads. 
+On multi-core CPU it can significantly increase application performance.
+</p>
 
-<pre><code data-language="javascript">
-function basicAjax(config) {
-    var result = vkhttp(config); // http request, part of vkThread plugin (see API) 
-	
-    function compare(a,b){
-      return b.stargazers_count - a.stargazers_count;
-    }
+<pre><code data-language="javascript">function foo(config, _size) {
+		
+    var result = vkhttp(config), // <-- get data from server
+	size = _size || 5;
 
-    return JSON.parse(result).sort(compare).slice(0,5);
- }
+   function compare(a,b){
+     return b.stargazers_count - a.stargazers_count;
+   }
+
+   return JSON.parse(result).sort(compare).slice(0,size);
+}
 </code></pre>
 
 <p><input type="button" ng-click="runMultiThread()" value="Run in two different threads" /> </p>
 
-<pre><code data-language="javascript">
- var param1 = {
-    fn: examples.basicAjax,
-    args: [ {url: 'https://api.github.com/users/angular/repos'} ]
-};
-var param2 = {
-    fn: examples.basicAjax,
-    args: [ {url: 'https://api.github.com/users/vkiryukhin/repos'} ]
+<pre><code data-language="javascript">var param1 = {
+    fn: foo,
+    args: [
+        {url: 'https://api.github.com/users/angular/repos'},
+        5
+    ]
+},
+param2 = {
+    fn: foo,
+    args: [
+        {url: 'https://api.github.com/users/vkiryukhin/repos'},
+        3
+    ]
 }
 
-  vkThread.execAll([param1,param2]).then(
-      function (data) {
-        $scope.repos = data[0].concat(data[1]);
-      },
-      function(err) {
-        alert(err);
-      }
-  );
+//run 2 threads
+vkThread.execAll([param1,param2]).then(
+     function (data) {
+     //join data from the first and the second thread
+       $scope.repos = data[0].concat(data[1]);
+     },
+     function(err) {
+       alert(err);
+     }
+ );
 </code></pre>
 

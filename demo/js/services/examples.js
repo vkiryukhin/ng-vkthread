@@ -1,15 +1,16 @@
 
 app.factory('examples', ['$http', function($http){
 
-	function basicAjax(config) {
+	function basicAjax(config, _size) {
 		
-		var result = vkhttp(config);
+		var result = vkhttp(config),
+			size = _size || 5;
 
 	    function compare(a,b){
 	      return b.stargazers_count - a.stargazers_count;
 	    }
 
-	    return JSON.parse(result).sort(compare).slice(0,5);
+	    return JSON.parse(result).sort(compare).slice(0,size);
 	  }
 
   function oneArg(arr){

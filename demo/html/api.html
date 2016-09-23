@@ -28,10 +28,59 @@
 </code></pre>
 
 <p></p>
+
+<p> <h4>vkhttp( config )</h4>
+<p>Runs XMLHttpRequest in a threads.</p>
+
+<pre><code data-language="javascript">
+	@return -- string
+
+	@config          - object;
+
+	config attributes:
+
+	@url                    - string; URL
+	@method      (optional) - string; http method; default is 'GET'
+	@body        (optional) - object; message body to send with 'POST'
+	@contentType (optional) - string; "Content-Type" http header;
+                                           by default it is 'application/json'
+
+</code></pre>
+
+<pre><code data-language="javascript">
+function foo(config, arg2, ...) {
+
+    /* request data from a server */
+    var data = vkhttp(config);
+
+    /* process the data */
+    . . .
+    return something;
+}
+
+
+var param = {
+  fn: foo,
+  args:[
+	/* the first element is config object for vkhttp() */
+	{ url:"path/to/your/server/file",
+	  method:'POST',                           // <-- skip for GET
+	  body: {firstname:'John', lastname:'Dow'} // <-- skip for GET
+	},
+
+	123, // <-- arg2
+	. . .
+  ]
+}
+</code></pre>
+
+<!--  
 	<h4>vkThread.getVersion();</h4>
 <pre><code data-language="javascript">
 	@return current version as a String;
 </code></pre>
+-->
+
 <p></p><p></p>
 </div>
 <div class="col-md-2"></div>

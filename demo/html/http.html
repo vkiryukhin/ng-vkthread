@@ -1,0 +1,39 @@
+
+<p>
+Function <b>vkhttp()</b> let you download data directly in a thread, process it and return result to UI. 
+<br/><br/>
+Http request in a thread is a special case for vkthread, as we need to add configuration for vkhttp() to the regular param object. 
+Config for vkhttp must be the first object in args[...] array
+
+For more details please see API page </p>
+
+<pre><code data-language="javascript">function foo(config, _size) {
+		
+    var result = vkhttp(config), // <-- get data from server
+	size = _size || 5;
+
+   function compare(a,b){
+     return b.stargazers_count - a.stargazers_count;
+   }
+
+   return JSON.parse(result).sort(compare).slice(0,size);
+ }
+</code></pre>
+
+<p><input type="button" ng-click="runHttpDemo()" value="Run in two different threads" /> </p>
+
+<pre><code data-language="javascript">var param = {
+    fn: foo,
+    args: [
+        {url: 'https://api.github.com/users/angular/repos'}, // config
+        7  // regular arg
+    ]
+}
+
+thread.exec(param).then(
+	function (data) {
+	    $scope.repos = data;
+	 }
+ );
+</code></pre>
+

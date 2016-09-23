@@ -2,7 +2,7 @@
 * ng-vkThread is angular plugin to execute javascript function(s) in a thread.
 *
 * https://github.com/vkiryukhin/ng-vkthread
-* http://www.eslinstructor.net/ng-vkthread/
+* http://www.eslinstructor.net/ng-vkthread/demo/
 *
 * @version: 2.5.0
 * The MIT License (MIT)

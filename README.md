@@ -1,5 +1,5 @@
 ##ng-vkThread 
-Angular plugin, which allows you to execute a function in a separate thread.
+Angular version of the vkThread plugin, which allows you to execute a function in a separate thread.
 
 Function can be defined directly in the main thread or called from an external javascript file.
 
@@ -13,8 +13,8 @@ Function can be defined directly in the main thread or called from an external j
 
 Plugin is built on HTML5 "Web Worker" technology.
 
-- file size: 2.2k minified / 4.2k development
-- Doesn't have any dependecies.
+- file size: 3.3k minified / 5.3k development
+- Doesn't have any dependencies.
 
 **Basic usage:**
 - install with bower

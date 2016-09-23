@@ -28,6 +28,10 @@
         $scope.activeTab = 'html/multithreading.html';
         $scope.activeTabName = 'multithreading';
         break;
+      case 'http':
+        $scope.activeTab = 'html/http.html';
+        $scope.activeTabName = 'http';
+        break;
       default:
         $scope.activeTab = 'html/arguments.html';
         $scope.activeTabName = 'arguments';
@@ -181,13 +185,17 @@ function _runWithContext(){
 function runMultiThread(){
   var param1 = {
           fn: examples.basicAjax,
-          args: [{url: 'https://api.github.com/users/angular/repos'}]
-  			
-
+          args: [
+                  {url: 'https://api.github.com/users/angular/repos'},
+                  5
+                ]
       },
       param2 = {
           fn: examples.basicAjax,
-          args: [{url: 'https://api.github.com/users/vkiryukhin/repos'}]
+          args: [
+                 	{url: 'https://api.github.com/users/vkiryukhin/repos'},
+                 	3
+                ]
 
       }
 
@@ -199,6 +207,26 @@ function runMultiThread(){
         alert(err);
       }
   );
+
+}
+
+function runHttpDemo(){
+  var param = {
+          fn: examples.basicAjax,
+          args: [
+                 {url: 'https://api.github.com/users/angular/repos'},
+                 7
+          ]
+      }
+
+  thread.exec(param).then(
+       function (data) {
+           $scope.repos = data;
+        },
+        function(err) {
+            alert(err);
+        }
+   );
 
 }
 
@@ -230,6 +258,7 @@ function _runFromExternal(){
   $scope.runWithContext = runWithContext;
   $scope.runMultiThread = runMultiThread;
   $scope.runFromExternal = runFromExternal;
+  $scope.runHttpDemo = runHttpDemo;
 
 
 }]);
